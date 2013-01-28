@@ -15,7 +15,7 @@ import com.todo.domain.Todo;
 import com.todo.repository.TodoRepository;
 
 @Controller
-@RequestMapping("/todos")
+@RequestMapping("/rest/todos")
 public class TodoController {
 
 	private final Logger logger = Logger.getLogger(this.getClass());
