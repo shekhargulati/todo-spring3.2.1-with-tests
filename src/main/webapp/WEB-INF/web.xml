@@ -5,10 +5,24 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	metadata-complete="false">
 
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>
+         org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+      </param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>com.todo.config.ApplicationConfig</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
 	<servlet>
-      <servlet-name>todoz</servlet-name>
-      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-      <init-param>
+		<servlet-name>todoz</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
          <param-name>contextClass</param-name>
          <param-value>
             org.springframework.web.context.support.AnnotationConfigWebApplicationContext
@@ -16,17 +30,17 @@
       </init-param>
       <init-param>
          <param-name>contextConfigLocation</param-name>
-         <param-value>com.todo.config</param-value>
+         <param-value>com.todo.config.WebConfig</param-value>
       </init-param>
-      <load-on-startup>1</load-on-startup>
-   </servlet>
-   <servlet-mapping>
-      <servlet-name>todoz</servlet-name>
-      <url-pattern>/rest/*</url-pattern>
-   </servlet-mapping>
-   
-   <welcome-file-list>
-      <welcome-file>index.html</welcome-file>
-   </welcome-file-list>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>todoz</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
 </web-app>
 
