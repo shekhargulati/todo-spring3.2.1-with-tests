@@ -21,7 +21,7 @@ import com.todo.repository.TodoRepository;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.todo")
-@EnableJpaRepositories(basePackageClasses=TodoRepository.class)
+@EnableJpaRepositories(basePackageClasses=TodoRepository.class,entityManagerFactoryRef="entityManagerFactory",transactionManagerRef="transactionManager")
 public class ApplicationConfig {
 
 	@Bean
