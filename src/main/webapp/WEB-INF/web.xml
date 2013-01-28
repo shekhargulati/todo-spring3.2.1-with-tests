@@ -22,7 +22,7 @@
    </servlet>
    <servlet-mapping>
       <servlet-name>todoz</servlet-name>
-      <url-pattern>/*</url-pattern>
+      <url-pattern>/rest/*</url-pattern>
    </servlet-mapping>
    
    <welcome-file-list>
