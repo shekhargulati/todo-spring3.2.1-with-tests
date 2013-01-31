@@ -5,19 +5,23 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	metadata-complete="false">
 
+	<context-param>
+		<param-name>spring.profiles.active</param-name>
+		<param-value>openshift</param-value>
+	</context-param>
 	<servlet>
 		<servlet-name>todoz</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
-         <param-name>contextClass</param-name>
-         <param-value>
+			<param-name>contextClass</param-name>
+			<param-value>
             org.springframework.web.context.support.AnnotationConfigWebApplicationContext
          </param-value>
-      </init-param>
-      <init-param>
-         <param-name>contextConfigLocation</param-name>
-         <param-value>com.todo.config.ApplicationConfig</param-value>
-      </init-param>
+		</init-param>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>com.todo.config.ApplicationConfig</param-value>
+		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
