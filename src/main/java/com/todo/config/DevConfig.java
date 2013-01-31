@@ -5,7 +5,6 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -16,15 +15,11 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import com.todo.controller.TodoController;
 import com.todo.repository.TodoRepository;
 
 @Configuration
 @EnableJpaRepositories(basePackageClasses = TodoRepository.class, entityManagerFactoryRef = "entityManagerFactory", transactionManagerRef = "transactionManager")
-@EnableWebMvc
-@ComponentScan(basePackageClasses=TodoController.class)
 @Profile("dev")
 public class DevConfig {
 
