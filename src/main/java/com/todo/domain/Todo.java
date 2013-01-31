@@ -1,5 +1,6 @@
 package com.todo.domain;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -15,6 +16,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 
 @Entity
 public class Todo {
@@ -88,6 +93,11 @@ public class Todo {
 	public String toString() {
 		return "Todo [id=" + id + ", version=" + version + ", todo=" + todo
 				+ ", createdOn=" + createdOn + ", tags=" + tags + "]";
+	}
+
+	public String toJson() throws JsonGenerationException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		return mapper.writeValueAsString(this);
 	}
 
 	
