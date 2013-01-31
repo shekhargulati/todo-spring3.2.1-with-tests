@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>Todo Application</title>
+</head>
+<body>
+
+	<section id="todoapp">
+		<header id="header">
+			<h1>todos</h1>
+			<input id="new-todo" placeholder="What needs to be done?" autofocus>
+			<input id="new-tags" placeholder="Comma seperated list of Tags">
+		</header>
+		<section id="main">
+			<input id="toggle-all" type="checkbox">
+			<label for="toggle-all">Mark all as complete</label>
+			<ul id="todo-list"></ul>
+		</section>
+		<footer id="footer"></footer>
+	</section>
+
+
+	<script type="text/javascript" src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+	<script type="text/javascript" src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
+
+	<script type="text/javascript">
+		Todo = Backbone.Model.extend({
+			defaults:{
+				title : ''.
+				completed : false,
+				tags : ''
+			},
+			toggle : function(){
+				this.save({
+					completed : !this.get('completed');
+				})
+			};
+		});
+	</script>
+	<script type="text/javascript">
+		AppView = Backbone.View.extend({
+			el:'#todoapp',
+			events:{
+				'keypress #new-todo': 'createOnEnter'
+			},
+			initialize : function(){
+				console.log('Initialized AppView');
+			}
+		});
+	</script>
+
+</body>
+</html>
